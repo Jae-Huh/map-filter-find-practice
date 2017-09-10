@@ -24,28 +24,28 @@ const examplePostsData = [
 
 async function fetchData(url) {
   try {
-    const res = await fetch (url)
+    const res = await fetch(url)
     return await res.json()
   } catch(err) {
     console.log(`Error fetching from ${url}`, err)
   }
-
 }
 
 // Get post 3
 async function getPost3() {
   const posts = await fetchData('https://jsonplaceholder.typicode.com/posts')
-  const post3 = posts.find(post => {
-    return post.id === 3
-  })
-
+  const post3 = posts.find(post => post.id === 3)
   console.log(post3)
 }
-
-getPost3()
+// getPost3()
 
 // Get all posts by userId 1
-
+async function getPostsByUser1() {
+  const posts = await fetchData('https://jsonplaceholder.typicode.com/posts')
+  const postsByUser1 = posts.filter(post => post.userId === 1)
+  console.log(postsByUser1)
+}
+// getPostsByUser1()
 
 // Get a list of titles
 
